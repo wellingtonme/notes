@@ -1,0 +1,68 @@
+{
+    "editor.formatOnPaste": true,
+    "typescript.implementationsCodeLens.enabled": true,
+    "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#00DFFF",
+        "editorLineNumber.foreground": "#00ADDD",
+        "editor.lineHighlightBackground": "#110022",
+        "activityBar.foreground": "#00CCEE",
+        "activityBarBadge.background": "#00EEFF",
+        "activityBarBadge.foreground": "#0000FF"
+    },
+    "window.zoomLevel": -1,
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    },
+    "window.titleBarStyle": "custom",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.tabSize": 2,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 12,
+    "files.eol": "\n",
+    "editor.letterSpacing": 2,
+    "todohighlight.keywords": [
+        {
+            "text": "TODO:",
+            "color": "#00ADDD",
+            "border": "1px solid #55e7f2",
+            "borderRadius": "2px",
+            "backgroundColor": "rgba(0,0,0,.2)"
+        }
+    ],
+    "todohighlight.defaultStyle": {
+        "color": "#00ADDD",
+        "backgroundColor": "#00ADDD",
+        "overviewRulerColor": "#00ADDD",
+        "cursor": "pointer",
+        "border": "1px solid #eee",
+        "borderRadius": "2px",
+        "isWholeLine": true,
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "terminal.integrated.rendererType": "dom",
+    "terminal.external.windowsExec": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "terminal.explorerKind": "external",
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.integrated.fontFamily": "Anonymous Pro for Powerline",
+    "terminal.integrated.fontSize": 16,
+    "showMusicMetrics": false,
+    "showGitMetrics": false,
+    "showWeeklyRanking": false,
+    "powermode.enabled": true,
+    "powermode.enableShake": false,
+    "powermode.backgroundMode": "image",
+    "powermode.customExplosions": [
+        "data:image/gif;base64,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"
+    ],
+    "powermode.explosionOffset": 0.5,
+    "powermode.explosionSize": 8,
+    "powermode.presets": "simple-rift"
+}

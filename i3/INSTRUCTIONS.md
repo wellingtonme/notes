@@ -70,3 +70,92 @@ bindsym XF86AudioPrev exec playerctl previous
 
 ## Network
 TBD
+
+## System actions
+For system actions, like lock, shutdown, suspend etc, there is a script.
+* Install scrot
+```
+sudo apt-get install scrot
+```
+
+* Add the following lines to `~/.i3/config`
+```
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+$sup+i mode "$mode_system"
+```
+
+* Add i3exit file to bin
+```
+cd /usr/local/bin
+sudo touch i3exit
+sudo chmod 777 i3exit
+sudo gedit i3exit
+```
+_past the follwing lines on i3exit_
+```
+#!/bin/sh
+
+lock(){
+    i3lock
+}
+
+case "$1" in
+    lock)
+        lock
+        ;;
+    logout)
+        i3-msg exit
+        ;;
+    suspend)
+        lock && systemctl suspend
+        ;;
+    hibernate)
+        lock && systemctl hibernate
+        ;;
+    reboot)
+        systemctl reboot
+        ;;
+    shutdown)
+        systemctl poweroff
+        ;;
+    *)
+        echo "Usage: $0 {lock|logout|suspend|hibernate|reboot|shutdown}"
+        exit 2
+esac
+
+exit 0
+```
+
+* Add the lock file
+_still within `/usr/local/bin`_
+```
+sudo touch lock
+sudo chmod 777 lock
+sudo gedit lock
+```
+_add the following lines on lock file_
+```
+#!/usr/bin/env bash
+
+icon="$HOME/Pictures/icon.png"
+tmpbg='/tmp/screen.png'
+
+(( $# )) && { icon=$1; }
+
+scrot "$tmpbg"
+convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
+convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
+i3lock -u -i "$tmpbg"
+```

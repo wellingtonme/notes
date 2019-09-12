@@ -158,3 +158,10 @@ convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
 convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
 i3lock -u -i "$tmpbg"
 ```
+## Notifications
+For notifications I've changed the default one for the xfce-notify, just because it is customazible.
+* `sudo apt-get purge dunst` to remove the dunst notifications service.
+* `killall dunst` to kill the dunst service.
+* restart the system and install the xfce notification service `sudo apt-get install xfce4-notifyd` (Wait a few seconds until it starts).
+
+_To create/edit a theme, the root folder is `/usr/share/themes/`_
